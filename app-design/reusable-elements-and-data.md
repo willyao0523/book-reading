@@ -303,3 +303,176 @@ Add a **157** **×** **221** rectangle (R) with a corner radius of **8**. Place 
 For the fill, select the **Birds of Prey** image from the **movie-images** directory, and give it a **default drop shadow**.
 
 Add a white stroke of width **5** to this layer, and name it **movie-details-image**.
+
+#### **Adding the Details**
+
+Copy the **title** and **movie-info** text layers from the **movie-card** component in the Components page, then place them to the right of the **movie-details-image** with a margin of **28** from the **movie-details-image**.
+
+Change the title fill to **black** and give it a top margin of **36**. Change the **movie-info** fill to **#827F7F** and place it below the title with a margin of **16** at the top.
+
+Add the **genre** component to the frame from the **Assets** section in the Layers panel, and place it below the **movie-info** layer. Give it a margin of **16** on the top and **28** on the left from the **movie-details-image**. Select the individual genre and change the stroke from white to **#B9C95A**.
+
+Similarly, select the individual genre texts and change their fill from white to **#B9C95A**.
+
+Group the title, movie-info and genre layers by pressing **Command-G**/**Control-G**, and name the group **info**. Here’s what it should look like:
+
+At this point, you may wonder why the title and movie-info layers aren’t individual components or why you modified the genre component’s colors instead of creating a new component. Those are great questions, and it would be helpful to address them before proceeding further.
+
+#### **When to Use Components**
+
+You could’ve made the movie-info and title layers into components, but that wouldn’t have any added benefit. Even if they were components, you’d have to:
+
+- Change their fill color.
+- Change their positioning.
+
+For the genre component, you could’ve created a separate component with the new fill color, but doing so doesn’t add value because you’ll use that variant in only one place.
+
+Components shine when they’re reused. If you’ll only use a variation once or twice, you’re better off using an override on an existing component by modifying its attributes.
+
+多次冲用的场景才更适合组件化
+
+#### **Setting up the Overview**
+
+Add a text layer (T) with the text **Overview** to the **movie-details** frame. Use **Roboto-Bold** as the font with a font size of **18**. Place it below **movie-details-image** at a margin of **40** from the top and **16** from the left. Name this layer **overview- header**.
+
+Add another text layer (T) for the movie overview. Place this layer below the **overview-header** at a margin of **16** from the top and left side. Copy the text from **movie-overview.txt** into this layer — you’ll find it in the project materials for this chapter.
+
+Use **Roboto-Regular** as the font with size **12**. Finally, name this layer **synopsis**.
+
+#### **Using Masks**
+
+The synopsis text is way too long to show in its entirety on this screen. It would save screen space and look cleaner to show just the first paragraph and allow the user to expand to read more.
+
+Another nifty Figma feature, **masks**, will help you do this.
+
+Think of masks as stencils placed on top of existing layers. Only the part of the background that’s within the stencil’s cutout region will be visible. You can achieve a bunch of nifty effects using masks that would otherwise be pretty difficult.
+
+mask可以帮助实现很多困难的effect
+
+Add a rectangle (R) measuring **380** **×** **174**, place it behind the text, and name it **background**. The placement is essential to get this right.
+
+Select both the **synopsis** and **background** layers, and click the **Mask** button on the toolbar or press **Control-Command-M**/**Control-Alt-M**.
+
+Alternatively, you can right-click while the layers are selected and select the **Use as Mask** option.
+
+This will clip the text, and the rectangle’s icon on the Layers panel will change to a half-moon.
+
+It might not seem that impressive because you could’ve just copied a single paragraph for the synopsis — but that would make the text static. Now that the mask height influences the text length, you can show as much or as little of the text as you want by selecting the background layer and modifying its height.
+
+#### **Fading out the Visible Text**
+
+Now, you’ll sprinkle some visual flair over this layer by making the text paler as it approaches the cutoff point.
+
+To do this, add another rectangle (R) measuring **380** **×** **174** inside the mask group, right above the synopsis. Name it **gradient** and give this layer a linear gradient.
+
+Instead of dragging the handle across the layer, drag it to the center.
+
+Give the left handle a **white fill** at **0%** opacity and the right handle a **white fill** at **100%** opacity.
+
+#### **Making the Cut-off Text Readable**
+
+For the final piece of the overview section, add a text field (T) and enter **Read More**. Use the font **Roboto-Bold** with a font size of **12** and a letter spacing of **3px**. Under the **Type Details** option, use **Uppercase** for the letter casing.
+
+Move this layer inside the mask group and place it above the gradient. Align it to the bottom of the gradient layer, and name the mask group **overview-text**.
+
+Things are looking great! You’re finished with the overview section and ready to move on to displaying the movie’s cast.
+
+#### **Adding the Cast Section**
+
+Next up — the cast section. Copy the **overview-header** and change the text to **Cast**. Place it below the **overview-text** group at a margin of **32** from the bottom of the masked layer and **16** from the left. Name it **cast-header**.
+
+For the cast pictures, you’ll use a third-party plugin from Unsplash.
+
+#### **Installing and Using a Third-Party Plugin**
+
+Plugins are critical to a designer’s workflow. They help you automate your mundane and repetitive workflows, saving time and letting you concentrate on things that are more fun.
+
+You’ll use the Unsplash plugin to populate the cast section with placeholder actor photos.
+
+Install the Unsplash plugin from https://www.figma.com/community/plugin/738454987945972471/Unsplash.
+
+Once you get an installation confirmation, head back into the editor and, below the cast header, add an ellipse (O) measuring **70** **×** **70**. Place it at a margin of **24** from the cast-header and **16** from the left.
+
+Duplicate this circle on the right at a margin of **24**. Select the two circles and create an Auto Layout frame.
+
+Create a total of **six** instances of the circle in the frame by duplicating them.
+
+Now comes the fun part. Select all the circles in the Auto Layout frame, right-click and go to **Plugins** **▸** **Unsplash**.
+
+From the pop-up, select **Portrait**. The circles will populate with actual images. Cool!
+
+Figma真的太棒了
+
+#### **Adding the User Ratings**
+
+For the user rating section header, repeat the same process you used for the **cast- header** and change the text to **Ratings — 4**. Place it below the **cast-images** at a margin of **40** from the top and **16** from the left. Finally, name it **ratings-header**.
+
+Add a rating component below the cast-images section, to the right of the **ratings- header**. Change the dimensions to **208** **×** **38** and change the text color to **#727272**. Place it at a margin of **32** from the top and **16** from the right.
+
+Next, you’ll add details about the people who left the ratings. Add a **35** **×** **35** ellipse (O) and place it below the **ratings-header** at a margin of **24** from the top and **16** from the left. Name it **user-image**.
+
+Add a **rating** component to the frame. Detach it from its instance by pressing **Option-Command-B**/**Control-B**, then delete the text layer with the **4.2** rating value.
+
+Select the **rating** component on the canvas, right-click and select **Ungroup**.
+
+Now, select the **stars** Auto Layout frame, right-click and select **Ungroup**.
+
+Select the five individual stars in the layer panel, group it back, and name the group **stars**.
+
+Change the dimensions of the **stars** group to **86** **×** **12**. Place them below the username layer at a margin of **8** from the top and **16** from the user-image.
+
+Change the fill color of the stars to **#F1C644**.
+
+Group the **user-image**, **username** and **stars** by pressing **Command-G**/**Control-G**, and call the group **ratings-row**.
+
+Duplicate it vertically at a spacing of **16** using Auto Layout. Then, select all the **user- image** layers and use the Unsplash plugin to populate the images. Name the Auto Layout frame **rating-list**.
+
+#### **Adding Movie Recommendations to the Details**
+
+For your next task, you’ll deviate a little from the mock-up. Wouldn’t it be nice to get recommendations for other movies within the movie’s details screen? It would go a long way toward increasing user engagement within the app.
+
+Go back to the Components page. On the Movie Card frame, duplicate the movie card component and detach it from its instance by pressing **Option-Command-B**/ **Control-B**. Give it a corner radius of **8** and select **Clip content**.
+
+Select the frame, make it a component by pressing **Option-Command-K**/**Control- Alt-K**, and rename it **movie card/rounded**. To make it more convenient to swap instances, rename the non-rounded variant to **movie card/sharp**. Then, select the two variants and click on the **Combine as variants** option.
+
+Name the property **Corner**.
+
+Resize the Movie Card frame to trim out any unused white space.
+
+Go back to the Cinematic App page and add a section header with the text **You may also like**. Place it at a margin of **32** from the top and **16** from the left. Name it **recommendations-header**.
+
+Below the recommendations-header, add a **movie card** component. Select the rounded corner variant.
+
+Name the property **Corner**.
+
+Resize the Movie Card frame to trim out any unused white space.
+
+Go back to the Cinematic App page and add a section header with the text **You may also like**. Place it at a margin of **32** from the top and **16** from the left. Name it **recommendations-header**.
+
+Below the recommendations-header, add a **movie card** component. Select the rounded corner variant.
+
+Use the scale option to resize it to approximately **324** **×** **205**. Place it at a margin of **16** from the top and left.
+
+Duplicate it three times horizontally with a spacing of **16**. Switch the movie posters as you like and change the movie names. Name the row **recommendations**.
+
+That’s a wrap! You’ve learned about components and how to leverage them to create flexible designs. More importantly, you learned the value of reusability when building designs!
+
+Why not test your knowledge with the following challenge?
+
+#### **Challenge**
+
+All you need to finalize this screen is the **Add to Watchlist** button, a **Back** button and the status bar. Instead of giving you instructions on creating these elements, this seems like the perfect challenge for you. Here’s what they should look like:
+
+If you get stuck, open **chapter-5-final.fig** and see how it’s done there.
+
+Fantastic job building out the movie list and details screens! Your designs are already looking pretty good. While you’re still a few steps away from bringing the app to its final form, you should be proud of how far you’ve come.
+
+The next chapter focuses on even more nuanced details, like using typography and colors to establish a brand identity and consistency for the app. Till then!
+
+#### **Key Points**
+
+- Organize components and designs using pages.
+- Compose components to build larger design elements and, when it makes sense, create a component.
+- Use variants to logically group similar components. 使用varient把类似的组件分类组织起来
+- Establishing naming conventions for components helps with instance swapping and logical grouping.
+- The Figma community offers third-party icon sets and plugins to make your job easier.
