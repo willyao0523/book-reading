@@ -208,3 +208,103 @@ You’re correct, you could have reused the **Movie Info** style for the body te
 不用担心一处影响了不相干的部分
 
 At this point, the only text element you don’t have a style for is the genre text. You could reuse the **Text Style - 14** for this, but the typographic scale would then lack hierarchy. Fonts, weights, and font sizes work together to break the screen into chunks that are easy for your users’ eyes to scan.
+
+#### **Supporting the Text Hierarchy**
+
+As of now, the font choices do most of the heavy lifting of creating a hierarchy. So you’ll keep that up by introducing a new text style to break the repetition in the scale.
+
+Create a new text layer called **Text Style — 12**, and you guessed it, the font size here will be **12**.
+
+While you’re at it, give **Text Style — 30** a font size of **32** and change the text to **Text Style — 32**.
+
+Be sure to change the font size on the **Rating** layer, too. This amplifies the difference between the styles even more.
+
+All right! For the final style, duplicate the **Text Style — 12** layer and place it below the **User Rating** layer. Change the text to **Genre Text** and the font to **Chivo** with a weight of **Bold**.
+
+The genres are always uppercase, so select **Uppercase** in the **Letter Case** section from the **Type Details** option.
+
+Now, take a moment for some housekeeping.
+
+You no longer need the **Text Style — FONT SIZE** layers, so select and delete them from the frame.
+
+Nice job, your typographic scale looks great. At this point, though, you just have simple text layers and not text styles. You still need to create text styles from these layers.
+
+#### **Creating Text Styles**
+
+Select the **Rating** layer and, under the **Text** section, select the **Style** option. The icon has four dots. Click the **+** icon to add a new text style.
+
+Next, select the **Title** layer by selecting the **Style** option, then clicking the **+** icon and creating a new style named **Title**.
+
+Repeat this process for the other text layers you styled. Once done, you’ll notice the styles appear under the **Local Styles** section.
+
+#### **Applying Your Styles**
+
+Now, it’s time to apply these styles to the components in the app. Head to the **Components** page.
+
+In **movie card/sharp**, select the **title** layer. Now, from the **Text** section in the Properties panel, click the **Style** icon and select the **Title** style.
+
+This will update the layer to use the title style you specified earlier.
+
+Next, select the individual text layers in the **movie-info** frame and change their text style to **Movie Info**. Notice that this messes up the **movie-info** section in the design. Don’t worry, it’s normal to run into alignment and positioning issues when applying text styles.
+
+To fix this, select the **year** layer and increase its width to **36**. That’s all you need to do to fix the **movie-info** layer.
+
+Next, switch to the **genre** component, select the individual genre text layers and apply the **Genre Text** style.
+
+Do the same for the **rating** component by selecting the layer with the rating value of **4.2** and applying the **Rating** style to it.
+
+#### **Fixing Alignment**
+
+When you look at **movie-info** **▸** **sharp** now, the alignment of the layers is off. Take a moment to fix this before proceeding.
+
+Select the **title**, **movie-info**, **genre** and **rating** layers.
+
+Now, **left align** them.
+
+To fix the margin, change the **X** value to **16**.
+
+Your final **movie card** **▸** **sharp** component will now look like this:
+
+Repeat the steps mentioned above for **movie card** **▸** **rounded**. If you run into alignment and positioning issues, remember that’s normal. If you have trouble fixing them, refer to the **chapter-6-final.fig** file to see how the result should look.
+
+#### **Handling the Bottom Navigation**
+
+Next comes the **bottom-nav** component, where you need to change the styling of the navigation target text. Select the individual text layers and apply the **Navigation Text** style. You’ll need to adjust the alignment of the text with the icons after applying the styles.
+
+#### **Improving the Details Page**
+
+Next, head to the **Cinematic App** page. Before you start, check out how the movie list frame looks after applying the text styles. It’s really starting to feel like a properly thought-out app.
+
+All right, changing the **movie-details** frame will be quick. First, select the **title** and apply the **Title** style.
+
+Next, apply the **Movie Info** style to the **movie-info** layer.
+
+Now, instead of modifying the section headers one by one, select them at once by holding **Command/Control** and clicking the layers.
+
+For your next step, apply the **Section Header** style.
+
+And... you’re finished! See how quick that was?
+
+#### **Finishing Your Text Styling**
+
+Next, select the **synopsis** layer and apply the **Body Text** style to it. As you can see, the text is illegible due to the relatively short line-height. You’ll modify the text style to fix this.
+
+Select the **body-text** layer and click the **Edit style** button.
+
+Under properties, specify a **line-height** of **20**. The synopsis looks much better now, and your change didn’t affect any other elements. This really demonstrates the advantage of having separate styles for different elements.
+
+Next, apply the **User Rating Text** style to the **username** within each **rating-row** instance.
+
+Finally, apply the **Button Text** style to the text layer inside **favorite-button** and fix any alignment issues that come up.
+
+Fantastic job with the text styles! The app finally has some personality, not to mention how visually appealing it looks. This is quite an achievement.
+
+You covered a lot of information here, congratulations. In the next chapter, you’ll jump into the world of colors and learn how to build an appealing palette from scratch.
+
+#### **Key Points**
+
+- You learned the fundamental concepts of typography and their importance in design.
+
+- You created a typographic scale with different fonts and font sizes to establish a visual hierarchy in the app.
+- You created text styles using your typographic scale.
+- You then applied the text styles to the components and the other parts of your design.
