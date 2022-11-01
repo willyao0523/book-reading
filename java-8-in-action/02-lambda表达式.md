@@ -652,7 +652,7 @@ Function<String, String> transformationPipeline = addHeader
   .andThen(Letter::addFoooter);
 ```
 
-第二个流水线可能只加抬头、落款，而不做拼写检查:
+q第二个流水线可能只加抬头、落款，而不做拼写检查:
 
 ```java
 Function<String, String> addHeader = Letter::addHeader;
